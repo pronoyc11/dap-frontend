@@ -1,0 +1,2 @@
+import { PageHeader, EmptyState } from "@/components/ui-kit";
+export default function EarningsPage() { return <main className="p-5 sm:p-10"><PageHeader title="Payments" description="Stripe publishing payments are recorded by the backend and reflected on your assessment." /><EmptyState title="Payment history" message="Payment records are available through the assessment publishing flow. Open a READY assessment to initiate Stripe Checkout." /></main>; }

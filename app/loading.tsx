@@ -1,0 +1,1 @@
+import { Skeleton } from "@/components/ui/skeleton"; export default function Loading() { return <main className="p-10"><Skeleton className="h-10 w-72" /><Skeleton className="mt-8 h-32 w-full rounded-2xl" /></main>; }
