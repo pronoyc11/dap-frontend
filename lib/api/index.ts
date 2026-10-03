@@ -1,5 +1,5 @@
 import apiClient from "./client";
-import type { AuthUser, LoginRequest, LoginResponse, RegisterRequest } from "@/types/auth";
+import type { LoginRequest, LoginResponse, RegisterRequest } from "@/types/auth";
 import type { ApiEnvelope, Paginated, AdminDashboard, Assessment, UserProfile, Problem, Attempt, Invitation } from "@/types/api";
 
 const unwrap = <T>(response: { data: ApiEnvelope<T> }) => response.data.data;
