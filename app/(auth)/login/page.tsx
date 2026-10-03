@@ -1,4 +1,6 @@
 "use client";
+/* The session marker is intentionally written after the backend establishes the HttpOnly cookie. */
+/* eslint-disable react-hooks/immutability */
 import Link from "next/link"; import { useRouter } from "next/navigation"; import { useForm } from "@tanstack/react-form"; import { z } from "zod"; import { toast } from "sonner"; import { authApi } from "@/lib/api"; import { useAuthStore } from "@/stores/auth-store"; import type { UserRole } from "@/types/auth";
 const schema = z.object({ email: z.string().email("Enter a valid email"), password: z.string().min(1, "Password is required") });
 const demos: { label: string; role: UserRole; email: string; password: string }[] = [{ label: "Admin demo", role: "ADMIN", email: "admin@example.com", password: "AdminPass123!" }, { label: "Candidate demo", role: "CANDIDATE", email: "candidate@example.com", password: "CandidatePass123!" }, { label: "Recruiter demo", role: "RECRUITER", email: "recruiter@example.com", password: "RecruiterPass123!" }];
