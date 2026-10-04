@@ -15,6 +15,11 @@ export const authApi = {
   me: async () => unwrap<UserProfile>(await apiClient.get("/users/me")),
 };
 
+export const systemApi = {
+  health: async (service?: string) => unwrap<{ status: string; service?: string }>(await apiClient.get("/health", { params: service ? { service } : undefined })),
+  authTest: async () => unwrap<UserProfile>(await apiClient.get("/auth-test/me")),
+};
+
 export const adminApi = {
   dashboard: async () => unwrap<AdminDashboard>(await apiClient.get("/admin/dashboard")),
   users: async (params: Record<string, string | number>) => unwrap<Paginated<UserProfile>>((await apiClient.get("/admin/users", { params }))),
