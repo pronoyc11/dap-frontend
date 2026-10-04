@@ -1,14 +1,14 @@
 "use client";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { LayoutDashboard, LogOut, Menu, Settings, Users, ClipboardList, Wallet, X } from "lucide-react";
+import { LayoutDashboard, LogOut, Menu, Settings, Users, ClipboardList, Wallet, X, Database, ShieldCheck, UserRound } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useAuthStore } from "@/stores/auth-store";
 import type { UserRole } from "@/types/auth";
 import { authApi } from "@/lib/api";
 import { toast } from "sonner";
 
-const links = (role?: string) => role === "ADMIN" ? [{ href: "/admin", label: "Overview", icon: LayoutDashboard }, { href: "/admin/users", label: "Users", icon: Users }, { href: "/admin/reports", label: "Audit reports", icon: ClipboardList }] : role === "RECRUITER" ? [{ href: "/provider", label: "Workspace", icon: LayoutDashboard }, { href: "/provider/assessments", label: "Assessments", icon: ClipboardList }, { href: "/provider/earnings", label: "Payments", icon: Wallet }] : [{ href: "/dashboard", label: "My dashboard", icon: LayoutDashboard }, { href: "/dashboard/assessments", label: "Assessments", icon: ClipboardList }];
+const links = (role?: string) => role === "ADMIN" ? [{ href: "/admin", label: "Overview", icon: LayoutDashboard }, { href: "/admin/users", label: "Users", icon: Users }, { href: "/admin/applications", label: "Applications", icon: ShieldCheck }, { href: "/admin/reports", label: "Audit reports", icon: ClipboardList }] : role === "RECRUITER" ? [{ href: "/provider", label: "Workspace", icon: LayoutDashboard }, { href: "/provider/assessments", label: "Assessments", icon: ClipboardList }, { href: "/provider/problems", label: "Problem library", icon: Database }, { href: "/provider/earnings", label: "Payments", icon: Wallet }, { href: "/provider/profile", label: "Company profile", icon: UserRound }] : [{ href: "/dashboard", label: "My dashboard", icon: LayoutDashboard }, { href: "/dashboard/assessments", label: "Assessments", icon: ClipboardList }];
 
 export function AppShell({ children }: { children: React.ReactNode }) {
   const user = useAuthStore((s) => s.user); const setUser = useAuthStore((s) => s.setUser); const clearAuth = useAuthStore((s) => s.clearAuth); const router = useRouter(); const path = usePathname(); const [open, setOpen] = useState(false);
