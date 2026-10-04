@@ -7,8 +7,8 @@ export const metadata: Metadata = {
     default: "Developer Assessment Platform",
     template: "%s | Developer Assessment Platform",
   },
-  description:
-    "A fullstack developer assessment and evaluation platform.",
+  description: "A code-forward assessment and evaluation platform for modern engineering teams.",
+  keywords: ["developer assessment", "technical hiring", "coding evaluation"],
 };
 
 export default function RootLayout({
